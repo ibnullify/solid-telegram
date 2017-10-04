@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
 @app.route("/"):
@@ -11,6 +11,10 @@ def login():
     else:
         return "You entered the wrong information!"
     return render_template("form.html")
+
+@app.route("/woo"):
+def logged():
+    return render_template("greet.html")
 
 if __name__ == "__main__":
     app.debug = True
